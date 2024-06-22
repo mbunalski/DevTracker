@@ -3,6 +3,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import {Create} from './api';
 import {useRef, useState} from 'react';
+import {GetAll} from './api'
 
 
 
@@ -69,6 +70,7 @@ export function CreateUpdatePopup({action}) {
                                         const description = descriptionInput.current.value;
                                         const startDate = startDateInput.current.value;
                                         Create(id, description, startDate, checked)
+                                        close()
                                         }}>
                                         Save
                                 </button>
