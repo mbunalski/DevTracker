@@ -1,10 +1,7 @@
-import {PokeMetric} from './PokeMetric';
-
-export function DisplayFilter({metric1, metric2}){
+export function DisplayFilter({data}){
     return(
         <div>
-            <PokeMetric metric={metric1} />
-            <PokeMetric metric={metric2} />
+            {data._id} {data.description} {String(data.closed)}
         </div>
     );
 }

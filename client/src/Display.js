@@ -1,4 +1,4 @@
-
+import { DisplayFilter } from "./DisplayItem";
 
 // import {useState} from 'react';
 
@@ -16,14 +16,16 @@
 //     );
 //   }
 
-export function Display({pokelist}){
+export function Display({tasklist}){
 
     return(
         <div>
             <ul>
-                {pokelist[0].map(pokemon => (
-                    <CreateUpdatePopup key={pokemon} pokemon={pokemon} />
+                {tasklist.map(task => (
+                    <DisplayFilter key={task._id} data={task}/>
+                    // <li>{task._id}</li>
                 ))}
+                {console.log("wamp")}
             </ul>
         </div>
     );
