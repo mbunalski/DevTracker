@@ -46,3 +46,24 @@
     return result
     
   } 
+
+  export async function Update (id, description,startDate, endDate, closed)  {
+    const requestOptions = {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: id,
+        description: description,
+        startDate: startDate,
+        endDate: endDate,
+        closed: closed
+    })
+  };
+    const allpokemon = await fetch(`http://localhost:5050/record/update`,requestOptions);
+   
+
+    // const result = await allpokemon.json();
+    
+    return allpokemon
+    
+  } 

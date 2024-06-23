@@ -1,5 +1,8 @@
 import Task from '../models/task.js';
 import db from "../db/connection.js";
+import { ObjectId } from 'mongodb';
+
+
 
 export async function createTask(req, res) {
     try {
@@ -28,7 +31,6 @@ export async function getAllTask(req, res){
 export async function deleteTask(req, res){
     try {
       const query = { _id: req.body.id };
-
       const collection = db.collection("devtracker");
       let result = await collection.deleteOne(query);
 
@@ -37,6 +39,29 @@ export async function deleteTask(req, res){
       console.error(err);
       res.status(500).send("Error deleting record");
     }
+};
+
+export async function updateTask(req, res){
+  try {
+    const query = { _id: Number(req.body.id) };
+    const updates = {
+      $set: {
+        description: req.body.description,
+        startDate: req.body.startDate,
+        endDate: req.body.endDate,
+        closed: req.body.closed 
+      },
+    };
+
+
+    const collection = db.collection("devtracker");
+    let result = await collection.updateOne(query,updates);
+
+    res.send(result).status(200);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error deleting record");
+  }
 };
 
 // Implement other CRUD operations (getBookById, updateBook, deleteBook) here...
