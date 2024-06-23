@@ -25,6 +25,20 @@ export async function getAllTask(req, res){
   res.send(results).status(200);
 };
 
+export async function deleteTask(req, res){
+    try {
+      const query = { _id: req.body.id };
+
+      const collection = db.collection("devtracker");
+      let result = await collection.deleteOne(query);
+
+      res.send(result).status(200);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Error deleting record");
+    }
+};
+
 // Implement other CRUD operations (getBookById, updateBook, deleteBook) here...
 
 

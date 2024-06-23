@@ -28,3 +28,21 @@
     return result
     
   } 
+
+  export async function Delete (id)  {
+
+    const requestOptions = {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: id
+    })}
+    
+    const allpokemon = await fetch(`http://localhost:5050/record/delete`,requestOptions);
+   
+
+    const result = await allpokemon.json();
+    
+    return result
+    
+  } 

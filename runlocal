@@ -1,0 +1,3 @@
+#!/bin/bash
+cd client
+npm run dev & cd .. && cd server && node --env-file=config.env server

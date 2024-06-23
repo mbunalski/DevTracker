@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import {GetAll} from './api'
+import {GetAll, Delete} from './api'
 import {CreateUpdatePopup} from './CreateUpdatePopup';
 import {Display} from './Display';
 import {useState, useEffect} from 'react';
@@ -37,6 +37,7 @@ export default function landingpage() {
         {/* <PokeFilter /> */}
         <CreateUpdatePopup key="Create" action="Create" />
         <Display key="set" tasklist={pokelist} />
+        {/* <button onClick={() => {Delete(1234)}}>Test</button> */}
 
     </div>  
 }

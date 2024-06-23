@@ -23,7 +23,6 @@ export function Display({tasklist}){
             <ul>
                 {tasklist.map(task => (
                     <DisplayFilter key={task._id} data={task}/>
-                    // <li>{task._id}</li>
                 ))}
                 {console.log("wamp")}
             </ul>
