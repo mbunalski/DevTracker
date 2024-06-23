@@ -9,6 +9,7 @@ export async function createTask(req, res) {
       let newtask = new Task ({
             _id: req.body.id,
             description: req.body.description,
+            notes: req.body.notes,
             startDate: req.body.startDate,
             creationTime: new Date(), 
             closed: req.body.closed
@@ -47,6 +48,7 @@ export async function updateTask(req, res){
     const updates = {
       $set: {
         description: req.body.description,
+        notes: req.body.notes,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
         closed: req.body.closed 

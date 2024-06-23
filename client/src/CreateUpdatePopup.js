@@ -8,7 +8,7 @@ import {GetAll} from './api'
 
 
  
-export function CreateUpdatePopup({action}) {
+export function CreateUpdatePopup({action, data}) {
 
     const [checked, setChecked] = useState(false);
 
@@ -18,6 +18,7 @@ export function CreateUpdatePopup({action}) {
     
     const idInput = useRef(null);
     const descriptionInput = useRef(null);
+    const notesInput = useRef(null);
     const startDateInput = useRef(null);
     const endDateInput = useRef(null);
     if(action == "Create"){
@@ -40,6 +41,11 @@ export function CreateUpdatePopup({action}) {
                                         Description: <input 
                                         name="description"
                                         ref={descriptionInput}/>
+                                    </label>
+                                    <label>
+                                        Notes: <input 
+                                        name="description"
+                                        ref={notesInput}/>
                                     </label>
                                     <label>
                                         Start Date: <input 
@@ -70,8 +76,9 @@ export function CreateUpdatePopup({action}) {
                                         {() => {
                                             const id = idInput.current.value;
                                             const description = descriptionInput.current.value;
+                                            const notes = notesInput.current.value;
                                             const startDate = startDateInput.current.value;
-                                            Create(id, description, startDate, checked)
+                                            Create(id, description, notes, startDate, checked)
                                             close()
                                             }}>
                                             Save
@@ -97,16 +104,25 @@ export function CreateUpdatePopup({action}) {
                                                 <label>
                                                     ID: <input 
                                                     name="id"
+                                                    value={data._id}
                                                     ref={idInput}/>
                                                 </label>
                                                 <label>
                                                     Description: <input 
                                                     name="description"
+                                                    defaultValue={data.description}
                                                     ref={descriptionInput}/>
+                                                </label>
+                                                <label>
+                                                    Notes: <input 
+                                                    name="description"
+                                                    defaultValue={data.notes}
+                                                    ref={notesInput}/>
                                                 </label>
                                                 <label>
                                                     Start Date: <input 
                                                     name="startDate"
+                                                    defaultValue={data.startDate}
                                                     type="date"
                                                     ref={startDateInput}/>
                                                 </label>
@@ -114,6 +130,7 @@ export function CreateUpdatePopup({action}) {
                                                     End Date: <input
                                                     type="date" 
                                                     name="endDate"
+                                                    defaultValue={data.endDate}
                                                     ref={endDateInput}/>
                                                 </label>
                                                 <label>
@@ -133,9 +150,10 @@ export function CreateUpdatePopup({action}) {
                                                     {() => {
                                                         const id = idInput.current.value;
                                                         const description = descriptionInput.current.value;
+                                                        const notes = notesInput.current.value;
                                                         const startDate = startDateInput.current.value;
                                                         const endDate = endDateInput.current.value;
-                                                        Update(id, description, startDate, endDate, checked)
+                                                        Update(id, description, notes, startDate, endDate, checked)
                                                         close()
                                                         }}>
                                                         Update

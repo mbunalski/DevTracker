@@ -1,10 +1,11 @@
-  export async function Create (id, description,startDate, closed)  {
+  export async function Create (id, description, notes, startDate, closed)  {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         id: id,
         description: description,
+        notes: notes,
         startDate: startDate,
         closed: closed
     })
@@ -47,13 +48,14 @@
     
   } 
 
-  export async function Update (id, description,startDate, endDate, closed)  {
+  export async function Update (id, description, notes, startDate, endDate, closed)  {
     const requestOptions = {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         id: id,
         description: description,
+        notes: notes,
         startDate: startDate,
         endDate: endDate,
         closed: closed
