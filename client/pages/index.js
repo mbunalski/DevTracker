@@ -1,4 +1,4 @@
-import App from "../src/App";
+import App from "./_app";
 
 export default function Home() {
   

@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import {GetAll, Delete} from './api'
-import {CreateUpdatePopup} from './CreateUpdatePopup';
-import {Display} from './Display';
+import {GetAll, Delete} from '../src/api'
+import {CreateUpdatePopup} from '../src//CreateUpdatePopup';
+import {Display} from '../src//Display';
 import {useState, useEffect} from 'react';
 import '../styles/global.css';
 
