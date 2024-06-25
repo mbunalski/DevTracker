@@ -1,15 +1,27 @@
-import { DisplayFilter } from "./DisplayItem";
+import { DevItem } from "./DisplayItem";
 
 
 export function Display({tasklist}){
 
     return(
-        <div>
-            <ul>
+
+        <table class="table-auto">
+            <thead>
+                <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Notes</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Closed?</th>
+                </tr>
+            </thead>
+            <tbody>
                 {tasklist.map(task => (
-                    <DisplayFilter key={task._id} data={task}/>
+                    <DevItem key={task._id} data={task}/>
                 ))}
-            </ul>
-        </div>
+
+            </tbody>
+        </table>
     );
 }
