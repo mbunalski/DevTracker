@@ -3,6 +3,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-3xl;
+    @apply font-bold;
+    @apply underline;
+  }
+  table{
+    @apply table-auto;
+    @apply border-collapse;
+    @apply border;
+    @apply border-slate-500;
+  }
+  th{
+    @apply border;
+  }
+  td{
+    @apply border;
+    
+  }
+
+  
+}
+
 html,
 body {
   padding: 0;
@@ -29,6 +52,7 @@ a {
 
 * {
   box-sizing: border-box;
+  @apply text-blue-500;
 }
 
 img {

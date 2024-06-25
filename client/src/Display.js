@@ -5,7 +5,7 @@ export function Display({tasklist}){
 
     return(
 
-        <table class="table-auto">
+        <table >
             <thead>
                 <tr>
                 <th>ID</th>
@@ -14,6 +14,8 @@ export function Display({tasklist}){
                 <th>Start Date</th>
                 <th>End Date</th>
                 <th>Closed?</th>
+                <th>Edit</th>
+                <th>Delete</th>
                 </tr>
             </thead>
             <tbody>

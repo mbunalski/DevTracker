@@ -24,25 +24,28 @@ export default function landingpage() {
 
     }
 
-  return <div className={styles.container}>
-        <Head>
-            <title>Keep the tasks in line</title>
-            <link rel="icon" href="/favicon.ico" />
-        </Head>
-        
+  return <div>
+            <div className="bg-slate-800 grid container place-items-center mx-auto content-center justify-center">
+                <Head>
+                    <title>Keep the tasks in line</title>
+                    <link rel="icon" href="/favicon.ico" />
+                </Head>
+                
 
-        <h1 className="text-3xl font-bold underline">
-            DevTracker
-        </h1>
+                <h1>
+                    DevTracker
+                </h1>
 
-        {/* <h1 className="text-3xl font-bold underline">
-        Hello world!
-        </h1> */}
 
-        {/* <PokeFilter /> */}
-        <CreateUpdatePopup key="Create" action="Create" />
-        <Display key="set" tasklist={pokelist} />
-        {/* <button onClick={() => {Delete(1234)}}>Test</button> */}
+                {/* <h1 className="text-3xl font-bold underline">
+                Hello world!
+                </h1> */}
 
+                {/* <PokeFilter /> */}
+                <CreateUpdatePopup key="Create" action="Create" />
+                <Display key="set" tasklist={pokelist} />
+                {/* <button onClick={() => {Delete(1234)}}>Test</button> */}
+
+            </div>
     </div>  
 }
