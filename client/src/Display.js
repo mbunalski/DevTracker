@@ -7,7 +7,7 @@ export function Display({tasklist}){
 
         <table >
             <thead>
-                <tr>
+                <tr >
                 <th>ID</th>
                 <th>Description</th>
                 <th>Notes</th>
@@ -18,7 +18,7 @@ export function Display({tasklist}){
                 <th>Delete</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                 {tasklist.map(task => (
                     <DevItem key={task._id} data={task}/>
                 ))}

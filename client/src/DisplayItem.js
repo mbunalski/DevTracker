@@ -3,7 +3,7 @@ import {CreateUpdatePopup} from './CreateUpdatePopup';
 
 export function DevItem({data}){
     return(
-        <tr>
+        <tr className="odd:bg-black even:bg-gray-700">
             <td>{data._id}</td>
             <td>{data.description}</td>
             <td>{data.notes}</td>

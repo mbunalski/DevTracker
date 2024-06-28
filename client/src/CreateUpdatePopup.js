@@ -23,10 +23,10 @@ export function CreateUpdatePopup({action, data}) {
     const endDateInput = useRef(null);
     if(action == "Create"){
         return (
-            <div>
+            <div className="flex w-3/6">
 
                 <Popup trigger=
-                    {<button> Create </button>} 
+                    {<button className="px-2 bg-gray-700 rounded-lg inline-flex items-center"> New Task </button>} 
                     modal nested>
                     {
                         close => (
@@ -92,7 +92,7 @@ export function CreateUpdatePopup({action, data}) {
         )
                 }else{
                     return (
-                        <div>
+                        <>
             
                             <Popup trigger=
                                 {<button> Update </button>} 
@@ -163,7 +163,7 @@ export function CreateUpdatePopup({action, data}) {
                                     )
                                 }
                             </Popup>
-                        </div>
+                        </>
                     )
                             
 

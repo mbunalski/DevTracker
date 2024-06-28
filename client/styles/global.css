@@ -4,30 +4,50 @@
 @tailwind utilities;
 
 @layer base {
+
+  * {
+    box-sizing: border-box;
+    @apply text-gray-300;
+    @apply border-gray-400;
+
+  }
+  div{
+    @apply bg-black;
+  }
+
   h1 {
     @apply text-3xl;
     @apply font-bold;
-    @apply underline;
+
   }
   table{
     @apply table-auto;
     @apply border-collapse;
     @apply border;
-    @apply border-slate-500;
+    @apply border-2
+    
   }
   th{
     @apply border;
+    @apply bg-gray-700;
+
   }
   td{
-    @apply border;
+    @apply border-x;
+    
     
   }
+  /* tr{
+    @apply even:bg-slate-800;
+    @apply odd:bg-slate-700;
+  } */
 
   
 }
 
 html,
 body {
+  background: black;
   padding: 0;
   margin: 0;
   font-family:
@@ -50,10 +70,7 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-  @apply text-blue-500;
-}
+
 
 img {
   max-width: 100%;
