@@ -8,7 +8,12 @@ import '../styles/global.css';
 
 
 export default function landingpage() {
-    const [pokelist, setPokelist] = useState([[]]);
+    const [tasklist, setTasklist] = useState([[]]);
+    const [checked, setChecked] = useState(false);
+
+    const handleChange = () => {
+        setChecked(!checked);
+    };
 
     useEffect(() =>{
         UpdateList()
@@ -17,12 +22,14 @@ export default function landingpage() {
     function UpdateList() {
 
         Promise.all([GetAll()]).then(x => {
-            setPokelist(x[0])
+            setTasklist(x[0])
         });
-
+        
         setTimeout(UpdateList, 5000);
 
     }
+
+
 
   return <div>
             <div className="grid container place-items-center mx-auto content-center justify-center">
@@ -53,9 +60,9 @@ export default function landingpage() {
                     
                     
                     <label className="w-1/6 inline-flex items-center cursor-pointer">
-                        <input type="checkbox" value="" class="sr-only peer"></input>
+                        <input type="checkbox" value="" class="sr-only peer" checked={checked} onChange={handleChange}></input>
                         <div class="relative w-11 h-6  peer-focus:outline-none peer-focus:ring-4  peer-focus:ring-blue-800 rounded-full peer bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all border-gray-600 peer-checked:bg-blue-600"></div>
-                        <span class="ms-3 text-sm font-medium text-gray-300">Open</span>
+                        <span class="ms-3 text-sm font-medium text-gray-300">Hide Closed</span>
                     </label>
 
 
@@ -65,7 +72,7 @@ export default function landingpage() {
 
                 </div>
                 <div>
-                    <Display key="set" tasklist={pokelist} />
+                    <Display key="set" tasklist={tasklist} open={checked}  />
                 </div>
 
             </div>
