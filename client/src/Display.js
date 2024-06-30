@@ -8,6 +8,7 @@ export function Display({tasklist, open}){
                 <thead>
                     <tr >
                     <th>ID</th>
+                    <th>Project</th>
                     <th>Description</th>
                     <th>Notes</th>
                     <th>Start Date</th>
@@ -31,6 +32,7 @@ export function Display({tasklist, open}){
                 <thead>
                     <tr >
                     <th>ID</th>
+                    <th>Project</th>
                     <th>Description</th>
                     <th>Notes</th>
                     <th>Start Date</th>

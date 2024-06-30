@@ -5,6 +5,7 @@ export function DevItem({data}){
     return(
         <tr className="odd:bg-black even:bg-gray-700">
             <td>{data._id}</td>
+            <td>{data.project}</td>
             <td>{data.description}</td>
             <td>{data.notes}</td>
             <td>{data.startDate}</td>

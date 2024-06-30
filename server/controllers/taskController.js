@@ -8,6 +8,7 @@ export async function createTask(req, res) {
     try {
       let newtask = new Task ({
             _id: req.body.id,
+            project: req.body.project,
             description: req.body.description,
             notes: req.body.notes,
             startDate: req.body.startDate,
@@ -47,6 +48,7 @@ export async function updateTask(req, res){
     const query = { _id: Number(req.body.id) };
     const updates = {
       $set: {
+        project: req.body.project,
         description: req.body.description,
         notes: req.body.notes,
         startDate: req.body.startDate,

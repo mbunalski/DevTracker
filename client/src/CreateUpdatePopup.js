@@ -17,6 +17,7 @@ export function CreateUpdatePopup({action, data}) {
     };
     
     const idInput = useRef(null);
+    const projectInput = useRef(null);
     const descriptionInput = useRef(null);
     const notesInput = useRef(null);
     const startDateInput = useRef(null);
@@ -46,6 +47,11 @@ export function CreateUpdatePopup({action, data}) {
                                         name="id"
                                         value={lastid(data)}
                                         ref={idInput}/>
+                                    </label>
+                                    <label>
+                                        Project: <input 
+                                        name="project"
+                                        ref={projectInput}/>
                                     </label>
                                     <label>
                                         Description: <input 
@@ -85,10 +91,11 @@ export function CreateUpdatePopup({action, data}) {
                                     <button onClick=
                                         {() => {
                                             const id = idInput.current.value;
+                                            const project = projectInput.current.value;
                                             const description = descriptionInput.current.value;
                                             const notes = notesInput.current.value;
                                             const startDate = startDateInput.current.value;
-                                            Create(id, description, notes, startDate, checked)
+                                            Create(id, project, description, notes, startDate, checked)
                                             close()
                                             }}>
                                             Save
@@ -116,6 +123,12 @@ export function CreateUpdatePopup({action, data}) {
                                                     name="id"
                                                     value={data._id}
                                                     ref={idInput}/>
+                                                </label>
+                                                <label>
+                                                    Project: <input 
+                                                    name="project"
+                                                    defaultValue={data.project}
+                                                    ref={projectInput}/>
                                                 </label>
                                                 <label>
                                                     Description: <input 
@@ -159,11 +172,12 @@ export function CreateUpdatePopup({action, data}) {
                                                 <button onClick=
                                                     {() => {
                                                         const id = idInput.current.value;
+                                                        const project = projectInput.current.value;
                                                         const description = descriptionInput.current.value;
                                                         const notes = notesInput.current.value;
                                                         const startDate = startDateInput.current.value;
                                                         const endDate = endDateInput.current.value;
-                                                        Update(id, description, notes, startDate, endDate, checked)
+                                                        Update(id, project, description, notes, startDate, endDate, checked)
                                                         close()
                                                         }}>
                                                         Update
