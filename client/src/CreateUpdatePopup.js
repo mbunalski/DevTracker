@@ -49,9 +49,10 @@ export function CreateUpdatePopup({action, data}) {
                                         ref={idInput}/>
                                     </label>
                                     <label>
-                                        Project: <input 
-                                        name="project"
-                                        ref={projectInput}/>
+                                        Project: <select name="project" ref={projectInput}>
+                                        <option value="DevTracker">DevTracker</option>
+                                        <option value="DokuDex">DokuDex</option>
+                                    </select>
                                     </label>
                                     <label>
                                         Description: <input 
@@ -127,7 +128,7 @@ export function CreateUpdatePopup({action, data}) {
                                                 <label>
                                                     Project: <input 
                                                     name="project"
-                                                    defaultValue={data.project}
+                                                    value={data.project}
                                                     ref={projectInput}/>
                                                 </label>
                                                 <label>

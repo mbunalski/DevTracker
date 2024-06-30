@@ -10,6 +10,7 @@ import '../styles/global.css';
 export default function landingpage() {
     const [tasklist, setTasklist] = useState([[]]);
     const [checked, setChecked] = useState(false);
+    const [project, setProject] = useState("all");
 
     const handleChange = () => {
         setChecked(!checked);
@@ -30,16 +31,12 @@ export default function landingpage() {
     }
 
     
-
-
-
   return <div>
             <div className="grid container place-items-center mx-auto content-center justify-center">
                 <Head>
                     <title>Keep the tasks in line</title>
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
-                
 
                 <h1>
                     DevTracker
@@ -47,12 +44,11 @@ export default function landingpage() {
 
                 <div className="flex mx-auto size-full justify">
 
-
                     <form className="w-1/6">
-                        <select id="countries" class=" border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                            <option value="ALL" selected>All</option>
-                            <option value="devtracker">DevTracker</option>
-                            <option value="dokudex">DokuDex</option>
+                        <select onChange={(e) => setProject(e.target.value)} id="countries" class=" border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                            <option value="all" selected>All</option>
+                            <option value="DevTracker">DevTracker</option>
+                            <option value="DokuDex">DokuDex</option>
                         </select>
                     </form>
                     <div className="w-2/6"></div>
@@ -65,14 +61,9 @@ export default function landingpage() {
                         <span class="ms-3 text-sm font-medium text-gray-300">Hide Closed</span>
                     </label>
 
-
-                    {/* <div className="w-1/6"></div> */}
-
-
-
                 </div>
                 <div>
-                    <Display key="set" tasklist={tasklist} open={checked}  />
+                    <Display key="set" tasklist={tasklist} open={checked} project={project} />
                 </div>
 
             </div>
