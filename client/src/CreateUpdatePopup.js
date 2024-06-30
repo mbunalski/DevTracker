@@ -1,7 +1,7 @@
 import React from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import {Create, Update} from './api';
+import {Create, Update, GetLast} from './api';
 import {useRef, useState} from 'react';
 import {GetAll} from './api'
 
@@ -21,6 +21,15 @@ export function CreateUpdatePopup({action, data}) {
     const notesInput = useRef(null);
     const startDateInput = useRef(null);
     const endDateInput = useRef(null);
+
+    function lastid(data){
+        let id;
+        data.map(task => {
+            id = task._id
+        })
+        return id +1
+    }
+
     if(action == "Create"){
         return (
             <div className="flex w-3/6">
@@ -35,6 +44,7 @@ export function CreateUpdatePopup({action, data}) {
                                     <label>
                                         ID: <input 
                                         name="id"
+                                        value={lastid(data)}
                                         ref={idInput}/>
                                     </label>
                                     <label>

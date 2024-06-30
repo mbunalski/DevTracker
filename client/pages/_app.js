@@ -29,6 +29,8 @@ export default function landingpage() {
 
     }
 
+    
+
 
 
   return <div>
@@ -48,15 +50,13 @@ export default function landingpage() {
 
                     <form className="w-1/6">
                         <select id="countries" class=" border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                            <option selected>Project</option>
-                            <option value="US">United States</option>
-                            <option value="CA">Canada</option>
-                            <option value="FR">France</option>
-                            <option value="DE">Germany</option>
+                            <option value="ALL" selected>All</option>
+                            <option value="devtracker">DevTracker</option>
+                            <option value="dokudex">DokuDex</option>
                         </select>
                     </form>
                     <div className="w-2/6"></div>
-                    <CreateUpdatePopup  key="Create" action="Create" />
+                    <CreateUpdatePopup  key="Create" action="Create" data={tasklist}/>
                     
                     
                     <label className="w-1/6 inline-flex items-center cursor-pointer">
