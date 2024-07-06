@@ -37,72 +37,141 @@ export function CreateUpdatePopup({action, data}) {
 
                 <Popup trigger=
                     {<button className="px-2 bg-gray-700 rounded-lg inline-flex items-center"> New Task </button>} 
-                    modal nested>
+                    modal nested >
                     {
                         close => (
-                            <div className='modal'>
-                                <div className='content'>
-                                    <label>
-                                        ID: <input 
-                                        name="id"
-                                        value={lastid(data)}
-                                        ref={idInput}/>
-                                    </label>
-                                    <label>
-                                        Project: <select name="project" ref={projectInput}>
-                                        <option value="DevTracker">DevTracker</option>
-                                        <option value="DokuDex">DokuDex</option>
-                                    </select>
-                                    </label>
-                                    <label>
-                                        Description: <input 
-                                        name="description"
-                                        ref={descriptionInput}/>
-                                    </label>
-                                    <label>
-                                        Notes: <input 
-                                        name="description"
-                                        ref={notesInput}/>
-                                    </label>
-                                    <label>
-                                        Start Date: <input 
-                                        name="startDate"
-                                        type="date"
-                                        ref={startDateInput}/>
-                                    </label>
-                                    <label>
-                                        End Date: <input
-                                        type="date" 
-                                        name="endDate"
-                                        ref={endDateInput}/>
-                                    </label>
-                                    <label>
-                                        Closed?: <input
-                                        type="checkbox" 
-                                        name="closed"
-                                        checked={checked}
-                                        onChange={handleChange}/>
-                                    </label>
+                            <div className='flex flex-col bg-pink-100'>
+                                <div className='bg-red-800 m-2'>Input Fields
+                                    <div className='flex flex-row bg-teal-500 justify-around'>
+                                        <div className='bg-orange-600'>
+                                            ID
+                                        {/* <label>
+                                            ID: <input 
+                                            name="id"
+                                            value={lastid(data)}
+                                            ref={idInput}/>
+                                        </label> */}
+                                        </div>
+                                        <div className='bg-yellow-600'>
+                                            Project
+                                        {/* <label>
+                                            Project: <select name="project" ref={projectInput}>
+                                            <option value="DevTracker">DevTracker</option>
+                                            <option value="DokuDex">DokuDex</option>
+                                        </select>
+                                        </label> */}
+                                        </div>
+                                    </div>
+                                    <div className='bg-green-800'>Description
+                                        {/* <label>
+                                            Description: <input 
+                                            name="description"
+                                            ref={descriptionInput}/>
+                                        </label> */}
+                                    </div>
+                                    <div className='bg-purple-800'>Notes
+                                        {/* <label>
+                                            Notes: <input 
+                                            name="notes"
+                                            ref={notesInput}/>
+                                        </label> */}
+                                    </div>
+                                    <div className='flex flex-row bg-blue-800 justify-around'>
+                                        <div className='bg-orange-600'>Open Date
+                                            {/* <label>
+                                                Start Date: <input 
+                                                name="startDate"
+                                                type="date"
+                                                ref={startDateInput}/>
+                                            </label> */}
+                                        </div>
+                                        <div className='bg-yellow-600'>Closed Date
+                                            {/* <label>
+                                                End Date: <input
+                                                type="date" 
+                                                name="endDate"
+                                                ref={endDateInput}/>
+                                            </label> */}
+                                        </div>
+                                    </div>
+                                    <div className='bg-inherit'>Closed
+                                        {/* <label>
+                                            Closed?: <input
+                                            type="checkbox" 
+                                            name="closed"
+                                            checked={checked}
+                                            onChange={handleChange}/>
+                                        </label> */}
+                                    </div>
                                 </div>
-                                <div>
-                                    <button onClick=
-                                        {() => close()}>
-                                            Cancel
-                                    </button>
-                                    <button onClick=
-                                        {() => {
-                                            const id = idInput.current.value;
-                                            const project = projectInput.current.value;
-                                            const description = descriptionInput.current.value;
-                                            const notes = notesInput.current.value;
-                                            const startDate = startDateInput.current.value;
-                                            Create(id, project, description, notes, startDate, checked)
-                                            close()
-                                            }}>
-                                            Save
-                                    </button>
+                                <div className='flex bg-gray-800 m-2 justify-between px-4'>
+                                    <div className='bg-inherit'>Save</div>
+                                    <div className='bg-inherit'>Close</div>
                                 </div>
                             </div>
+                            // <div className=''>
+                            //     <div className='content'>
+                            //         <label>
+                            //             ID: <input 
+                            //             name="id"
+                            //             value={lastid(data)}
+                            //             ref={idInput}/>
+                            //         </label>
+                                    // <label>
+                                    //     Project: <select name="project" ref={projectInput}>
+                                    //     <option value="DevTracker">DevTracker</option>
+                                    //     <option value="DokuDex">DokuDex</option>
+                                    // </select>
+                                    // </label>
+                            //         <label>
+                            //             Description: <input 
+                            //             name="description"
+                            //             ref={descriptionInput}/>
+                            //         </label>
+                            //         <label>
+                            //             Notes: <input 
+                            //             name="notes"
+                            //             ref={notesInput}/>
+                            //         </label>
+                            //         <label>
+                            //             Start Date: <input 
+                            //             name="startDate"
+                            //             type="date"
+                            //             ref={startDateInput}/>
+                            //         </label>
+                            //         <label>
+                            //             End Date: <input
+                            //             type="date" 
+                            //             name="endDate"
+                            //             ref={endDateInput}/>
+                            //         </label>
+                                    // <label>
+                                    //     Closed?: <input
+                                    //     type="checkbox" 
+                                    //     name="closed"
+                                    //     checked={checked}
+                                    //     onChange={handleChange}/>
+                                    // </label>
+                            //     </div>
+                            //     <div className=' bg-white'>
+                            //         <button onClick=
+                            //             {() => close()}>
+                            //                 Cancel
+                            //         </button>
+                            //         <button onClick=
+                            //             {() => {
+                            //                 const id = idInput.current.value;
+                            //                 const project = projectInput.current.value;
+                            //                 const description = descriptionInput.current.value;
+                            //                 const notes = notesInput.current.value;
+                            //                 const startDate = startDateInput.current.value;
+                            //                 Create(id, project, description, notes, startDate, checked)
+                            //                 close()
+                            //                 }}>
+                            //                 Save
+                            //         </button>
+                            //     </div>
+                            // </div>
                         )
                     }
                 </Popup>
@@ -139,7 +208,7 @@ export function CreateUpdatePopup({action, data}) {
                                                 </label>
                                                 <label>
                                                     Notes: <input 
-                                                    name="description"
+                                                    name="notes"
                                                     defaultValue={data.notes}
                                                     ref={notesInput}/>
                                                 </label>
