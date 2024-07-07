@@ -9,6 +9,7 @@
     box-sizing: border-box;
     @apply text-gray-300;
     @apply border-gray-400;
+    @apply text-inherit;
 
   }
   div{
@@ -41,7 +42,13 @@
     @apply even:bg-slate-800;
     @apply odd:bg-slate-700;
   } */
-
+  .biginput{
+    
+    @apply w-96; 
+    @apply h-24; 
+    @apply align-top;
+    
+  }
   
 }
 

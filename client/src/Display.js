@@ -4,8 +4,8 @@ import { DevItem } from "./DisplayItem";
 export function Display({tasklist, open, project}){
     if(open && project == "all"){
         return(
-            <table >
-                <thead>
+            <table className='text-gray-200'>
+                <thead className=''>
                     <tr >
                     <th>ID</th>
                     <th>Project</th>
@@ -28,7 +28,7 @@ export function Display({tasklist, open, project}){
         );
     }else if(open && project != "all"){
         return(
-            <table >
+            <table className='text-gray-200'>
                 <thead>
                     <tr >
                     <th>ID</th>
@@ -52,7 +52,7 @@ export function Display({tasklist, open, project}){
         );
     }else if(!open && project != "all"){
         return(
-            <table >
+            <table className='text-gray-200'>
                 <thead>
                     <tr >
                     <th>ID</th>
@@ -77,7 +77,7 @@ export function Display({tasklist, open, project}){
     }
     else {
         return(
-            <table >
+            <table className='text-gray-200'>
                 <thead>
                     <tr >
                     <th>ID</th>
