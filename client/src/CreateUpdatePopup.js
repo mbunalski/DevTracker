@@ -33,10 +33,10 @@ export function CreateUpdatePopup({action, data}) {
 
     if(action == "Create"){
         return (
-            <div className="flex w-3/6 text-gray-200">
+            <>
                  
                 <Popup  contentStyle={{width: "fit-content", height: "fit-content"}} trigger=
-                    {<button className="px-2 bg-gray-700 rounded-lg inline-flex items-center"> New Task </button>} 
+                    {<button className="text-gray-200 px-2 bg-gray-700 rounded-lg inline-flex items-center"> New Task </button>} 
                     modal nested >
                     {
                         close => (
@@ -136,7 +136,7 @@ export function CreateUpdatePopup({action, data}) {
                         )
                     }
                 </Popup>
-            </div>
+            </>
         )
                 }else{
                     return (
