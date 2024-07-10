@@ -52,6 +52,13 @@
   
 }
 
+@layer utilities {
+  td,
+  th {
+    @apply p-2;
+  }
+}
+
 html,
 body {
   background: black;

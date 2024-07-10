@@ -4,8 +4,8 @@ import { DevItem } from "./DisplayItem";
 export function Display({tasklist, open, project}){
     if(open && project == "all"){
         return(
-            <table className='text-gray-200'>
-                <thead className=''>
+            <table className='text-gray-200 '>
+                <thead className='whitespace-nowrap'>
                     <tr >
                     <th>ID</th>
                     <th>Project</th>

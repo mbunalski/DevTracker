@@ -142,64 +142,95 @@ export function CreateUpdatePopup({action, data}) {
                     return (
                         <>
             
-                            <Popup trigger=
+                            <Popup contentStyle={{width: "fit-content", height: "fit-content"}} trigger=
                                 {<button> Update </button>} 
                                 modal nested>
                                 {
                                     close => (
-                                        <div className='modal'>
-                                            <div className='content'>
-                                                <label>
-                                                    ID: <input 
-                                                    name="id"
-                                                    value={data._id}
-                                                    ref={idInput}/>
-                                                </label>
-                                                <label>
-                                                    Project: <input 
-                                                    name="project"
-                                                    value={data.project}
-                                                    ref={projectInput}/>
-                                                </label>
-                                                <label>
-                                                    Description: <input 
-                                                    name="description"
-                                                    defaultValue={data.description}
-                                                    ref={descriptionInput}/>
-                                                </label>
-                                                <label>
-                                                    Notes: <input 
-                                                    name="notes"
-                                                    defaultValue={data.notes}
-                                                    ref={notesInput}/>
-                                                </label>
-                                                <label>
-                                                    Start Date: <input 
-                                                    name="startDate"
-                                                    defaultValue={data.startDate}
-                                                    type="date"
-                                                    ref={startDateInput}/>
-                                                </label>
-                                                <label>
-                                                    End Date: <input
-                                                    type="date" 
-                                                    name="endDate"
-                                                    defaultValue={data.endDate}
-                                                    ref={endDateInput}/>
-                                                </label>
-                                                <label>
-                                                    Closed?: <input
-                                                    type="checkbox" 
-                                                    name="closed"
-                                                    checked={checked}
-                                                    onChange={handleChange}/>
-                                                </label>
+
+                                            <div className='flex flex-col text-gray-200'>
+                                            <div className=' m-2'>
+                                                <div className='flex flex-row justify-between mb-2'>
+                                                    <div className='mr-2'>
+                                                    <label>
+                                                        ID: <input 
+                                                        name="id"
+                                                        value={data._id}
+                                                        ref={idInput}
+                                                        className='text-black p-2'/>
+                                                    </label>
+                                                    </div>
+                                                    <div className=''>
+                                                    
+                                                        <label>
+                                                        Project: <input 
+                                                        name="project"
+                                                        value={data.project}
+                                                        ref={projectInput}
+                                                        className='text-black p-2'/>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div className='mb-2'>
+                                                    <label>
+                                                        Description: <input 
+                                                        name="description"
+                                                        defaultValue={data.description}
+                                                        ref={descriptionInput}
+                                                        className='biginput text-black p-2'/>
+                                                    </label>
+                                                </div>
+                                                <div className='mb-2 justify-between flex'>
+                                                    <label>
+                                                        Notes:</label> <input 
+                                                        name="notes"
+                                                        defaultValue={data.notes}
+                                                        ref={notesInput}
+                                                        className='biginput text-black p-2'/>
+                                                    
+                                                </div>
+                                                <div className='flex flex-row justify-between'>
+                                                    <div className='mr-2'>
+                                                        <label>
+                                                            Start Date: <input 
+                                                            name="startDate"
+                                                            defaultValue={data.startDate}
+                                                            type="date"
+                                                            ref={startDateInput}
+                                                            className='text-black p-2'
+                                                            />
+                                                        </label>
+                                                    </div>
+                                                    <div className=''>
+                                                        <label>
+                                                            End Date: <input
+                                                            type="date" 
+                                                            name="endDate"
+                                                            defaultValue={data.endDate}
+                                                            ref={endDateInput}
+                                                            className='text-black p-2'/>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div className='bg-inherit'>
+                                                    <label>
+                                                        Closed?: <input
+                                                        type="checkbox" 
+                                                        name="closed"
+                                                        checked={checked}
+                                                        onChange={handleChange}/>
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div>
+                                            <div className='flex m-2 justify-center px-4'>
+                                                <div className='py-2 px-4 border border-1 border-white mx-2 w-20 rounded-md'>
                                                 <button onClick=
                                                     {() => close()}>
                                                         Cancel
                                                 </button>
+                                                </div>
+                                                <div className='py-2 px-4 border border-1 border-white mx-2 w-20 flex justify-center rounded-md'>
                                                 <button onClick=
                                                     {() => {
                                                         const id = idInput.current.value;
@@ -211,10 +242,13 @@ export function CreateUpdatePopup({action, data}) {
                                                         Update(id, project, description, notes, startDate, endDate, checked)
                                                         close()
                                                         }}>
-                                                        Update
+                                                        Save
                                                 </button>
+                                                </div>
                                             </div>
+                                            
                                         </div>
+
                                     )
                                 }
                             </Popup>

@@ -44,14 +44,18 @@ export default function landingpage() {
 
                 <div className="flex mx-auto size-full justify">
 
-                    <form className="w-1/6">
+                    <form className="w-2/6">
                         <select onChange={(e) => setProject(e.target.value)} id="countries" class=" border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                             <option value="all" selected>All</option>
                             <option value="DevTracker">DevTracker</option>
                             <option value="DokuDex">DokuDex</option>
                         </select>
                     </form>
+
+                    
                     <div className="w-2/6"></div>
+
+
                     <CreateUpdatePopup  key="Create" action="Create" data={tasklist}/>
                     
                     
