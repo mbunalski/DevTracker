@@ -57,6 +57,7 @@ export function CreateUpdatePopup({action, data}) {
                                             Project: <select name="project" className='text-black p-2' ref={projectInput}>
                                             <option value="DevTracker">DevTracker</option>
                                             <option value="DokuDex">DokuDex</option>
+                                            <option value="StravaUpdate">StravaUpdate</option>
                                         </select>
                                         </label>
                                         </div>
