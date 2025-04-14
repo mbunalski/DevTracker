@@ -18,8 +18,6 @@ router.get("/", getAllTask);
 // This section will help you create a new record.
 router.post("/", createTask);
 
-// // This section will help you get a single record by id
-
 // // This section will help you update a record by id.
 router.patch("/update", updateTask);
 

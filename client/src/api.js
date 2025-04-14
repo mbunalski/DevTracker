@@ -1,3 +1,5 @@
+  const url = 'http://localhost:5050'
+  
   export async function Create (id, project, description, notes, startDate, closed)  {
     const requestOptions = {
       method: 'POST',
@@ -11,7 +13,7 @@
         closed: closed
     })
   };
-    const allpokemon = await fetch(`http://localhost:5050/record`,requestOptions);
+    const allpokemon = await fetch(url + '/record',requestOptions);
    
 
     const result = await allpokemon.json();
@@ -22,11 +24,11 @@
 
   export async function GetAll ()  {
     
-    const allpokemon = await fetch(`http://localhost:5050/record`);
+    const allpokemon = await fetch(url + '/record');
    
 
     const result = await allpokemon.json();
-
+  
     return result
     
   } 
@@ -40,7 +42,7 @@
         id: id
     })}
     
-    const allpokemon = await fetch(`http://localhost:5050/record/delete`,requestOptions);
+    const allpokemon = await fetch(url + '/record/delete',requestOptions);
    
 
     const result = await allpokemon.json();
@@ -63,7 +65,7 @@
         closed: closed
     })
   };
-    const allpokemon = await fetch(`http://localhost:5050/record/update`,requestOptions);
+    const allpokemon = await fetch(url + '/record/update',requestOptions);
    
 
     // const result = await allpokemon.json();
