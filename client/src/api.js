@@ -1,4 +1,4 @@
-  const url = 'http://localhost:5050'
+  const url = 'https://dev-tracker-7soq.vercel.app'
   
   export async function Create (id, project, description, notes, startDate, closed)  {
     const requestOptions = {
