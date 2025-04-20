@@ -25,9 +25,7 @@ export function CreateUpdatePopup({action, data}) {
 
     function lastid(data){
         let id;
-        data.map(task => {
-            id = task._id
-        })
+        id = GetLast()
         return id +1
     }
 
@@ -47,7 +45,7 @@ export function CreateUpdatePopup({action, data}) {
                                         <label>
                                             ID: <input 
                                             name="id"
-                                            value="TBD"
+                                            value={lastid(data)}
                                             ref={idInput}
                                             className='text-black p-2'/>
                                         </label>
@@ -119,11 +117,12 @@ export function CreateUpdatePopup({action, data}) {
                                     <div className='py-2 px-4 border border-1 border-white mx-2 w-20 flex justify-center rounded-md'>
                                     <button onClick=
                                         {() => {
+                                            const id = idInput.current.value;
                                             const project = projectInput.current.value;
                                             const description = descriptionInput.current.value;
                                             const notes = notesInput.current.value;
                                             const startDate = startDateInput.current.value;
-                                            Create(project, description, notes, startDate, checked)
+                                            Create(id, project, description, notes, startDate, checked)
                                             close()
                                             }}>
                                             Save

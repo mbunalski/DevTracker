@@ -2,7 +2,7 @@ import express from "express";
 
 import Task from '../models/task.js';
 
-import {createTask, getAllTask, deleteTask, updateTask} from '../controllers/taskController.js';
+import {getMaxId, createTask, getAllTask, deleteTask, updateTask} from '../controllers/taskController.js';
 
 // This help convert the id from string to ObjectId for the _id.
 import { ObjectId } from "mongodb";
@@ -23,5 +23,8 @@ router.patch("/update", updateTask);
 
 // // This section will help you delete a record
 router.delete("/delete", deleteTask);
+
+//This will return the Max ID
+router.get("/maxid", getMaxId);
 
 export default router;

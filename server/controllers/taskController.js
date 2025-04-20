@@ -5,25 +5,24 @@ import { ObjectId } from 'mongodb';
 
 
 export async function createTask(req, res) {
-  try {
-    const collection = await db.collection("devtracker");
-
-    const newTask = {
-      project: req.body.project,
-      description: req.body.description,
-      notes: req.body.notes,
-      startDate: req.body.startDate,
-      creationTime: new Date(),
-      closed: req.body.closed
-    };
-
-    const result = await collection.insertOne(newTask);
-    res.status(201).send(result); // 201 = created
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error adding record");
-  }
-}
+    try {
+      let newtask = new Task ({
+            _id: req.body.id,
+            project: req.body.project,
+            description: req.body.description,
+            notes: req.body.notes,
+            startDate: req.body.startDate,
+            creationTime: new Date(), 
+            closed: req.body.closed
+        })
+      let collection = await db.collection("devtracker");
+      let result = await collection.insertOne(newtask);
+      res.send(result).status(204);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Error adding record");
+    }
+  };
 
 export async function getAllTask(req, res){
   let collection = await db.collection("devtracker");
@@ -68,3 +67,20 @@ export async function updateTask(req, res){
     res.status(500).send("Error deleting record");
   }
 };
+
+export async function getMaxId(req, res) {
+  try {
+    const collection = await db.collection("devtracker");
+
+    const maxDoc = await collection.find()
+      .sort({ _id: -1 })
+      .limit(1)
+      .toArray();
+
+    const maxId = maxDoc.length > 0 ? maxDoc[0]._id : 0;
+    res.status(200).json({ maxId: maxId });
+  } catch (err) {
+    console.error("Failed to get max ID", err);
+    res.status(500).send("Error retrieving max ID");
+  }
+}
