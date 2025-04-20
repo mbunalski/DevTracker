@@ -23,9 +23,9 @@ export function CreateUpdatePopup({action, data}) {
     const startDateInput = useRef(null);
     const endDateInput = useRef(null);
 
-    function lastid(data){
-        let id;
-        id = GetLast()
+    async function lastid(data){
+        
+        const id = await GetLast();
         return id +1
     }
 
