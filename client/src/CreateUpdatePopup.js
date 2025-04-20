@@ -2,7 +2,7 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import {Create, Update, GetLast} from './api';
-import {useRef, useState} from 'react';
+import {useRef, useState, useEffect} from 'react';
 import {GetAll} from './api'
 
 
@@ -11,10 +11,16 @@ import {GetAll} from './api'
 export function CreateUpdatePopup({action, data}) {
 
     const [checked, setChecked] = useState(false);
+    const [nextId, setNextId] = useState(null);
+
 
     const handleChange = () => {
         setChecked(!checked);
     };
+    
+    useEffect(() => {
+        GetLast().then(id => setNextId(id + 1));
+      }, []);
     
     const idInput = useRef(null);
     const projectInput = useRef(null);
@@ -41,12 +47,13 @@ export function CreateUpdatePopup({action, data}) {
                             <div className='flex flex-col text-gray-200'>
                                 <div className=' m-2'>
                                     <div className='flex flex-row justify-between mb-2'>
-                                        <div className='mr-2'>
+                                    <div className='mr-2'>
                                         <label>
                                             ID: <input 
                                             name="id"
-                                            value={lastid(data)}
+                                            value={nextId !== null ? nextId : "Loading..."}
                                             ref={idInput}
+                                            readOnly
                                             className='text-black p-2'/>
                                         </label>
                                         </div>
