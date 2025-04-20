@@ -35,14 +35,8 @@ export default function landingpage() {
             DevTracker
         </h1>
 
-        {/* <h1 className="text-3xl font-bold underline">
-        Hello world!
-        </h1> */}
-
-        {/* <PokeFilter /> */}
         <CreateUpdatePopup key="Create" action="Create" />
         <Display key="set" tasklist={pokelist} />
-        {/* <button onClick={() => {Delete(1234)}}>Test</button> */}
 
     </div>  
 }

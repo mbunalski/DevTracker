@@ -1,26 +1,22 @@
   const url = 'https://dev-tracker-7soq.vercel.app'
   
-  export async function Create (id, project, description, notes, startDate, closed)  {
+  export async function Create(project, description, notes, startDate, closed) {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        id: id,
         project: project,
         description: description,
         notes: notes,
         startDate: startDate,
         closed: closed
-    })
-  };
-    const allpokemon = await fetch(url + '/record',requestOptions);
-   
-
-    const result = await allpokemon.json();
-    
-    return result
-    
-  } 
+      })
+    };
+  
+    const response = await fetch(url + '/record', requestOptions);
+    const result = await response.json();
+    return result;
+  }
 
   export async function GetAll ()  {
     
